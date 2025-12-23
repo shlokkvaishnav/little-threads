@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LittleLeaves Design System - Children's E-Commerce */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Primary Colors - Royal Green Theme */
+    --primary: 95 52% 20%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 95 52% 27%;
+    
+    /* Secondary - Forest Green */
+    --secondary: 95 52% 27%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Backgrounds */
+    --background: 40 33% 97%;
+    --foreground: 0 0% 17%;
+    
+    /* Cards & Surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 17%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 17%;
+    
+    /* Muted - Soft Beige */
+    --muted: 40 28% 95%;
+    --muted-foreground: 0 0% 35%;
+    
+    /* Accent - Terracotta/Coral */
+    --accent: 16 70% 61%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Sage Green */
+    --sage: 115 17% 60%;
+    --sage-foreground: 0 0% 17%;
+    
+    /* Gold for Premium/Bestseller */
+    --gold: 43 74% 52%;
+    --gold-foreground: 0 0% 17%;
+    
+    /* Category Hints */
+    --pink-soft: 0 33% 95%;
+    --blue-soft: 165 33% 94%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* UI Elements */
+    --border: 40 18% 90%;
+    --input: 40 18% 90%;
+    --ring: 95 52% 20%;
+    
+    --radius: 0.75rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(45, 80, 22, 0.04);
+    --shadow-md: 0 4px 16px rgba(45, 80, 22, 0.06);
+    --shadow-lg: 0 8px 24px rgba(45, 80, 22, 0.1);
+    --shadow-xl: 0 12px 32px rgba(45, 80, 22, 0.12);
+    
+    /* Sidebar */
+    --sidebar-background: 40 33% 97%;
+    --sidebar-foreground: 0 0% 17%;
+    --sidebar-primary: 95 52% 20%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 28% 95%;
+    --sidebar-accent-foreground: 0 0% 17%;
+    --sidebar-border: 40 18% 90%;
+    --sidebar-ring: 95 52% 20%;
+  }
+
+  .dark {
+    --primary: 95 45% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 95 45% 55%;
+    
+    --secondary: 95 40% 35%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --background: 0 0% 8%;
+    --foreground: 40 33% 95%;
+    
+    --card: 0 0% 12%;
+    --card-foreground: 40 33% 95%;
+    
+    --popover: 0 0% 12%;
+    --popover-foreground: 40 33% 95%;
+    
+    --muted: 0 0% 15%;
+    --muted-foreground: 40 20% 70%;
+    
+    --accent: 16 60% 55%;
+    --accent-foreground: 0 0% 100%;
+    
+    --sage: 115 15% 50%;
+    --sage-foreground: 40 33% 95%;
+    
+    --gold: 43 70% 50%;
+    --gold-foreground: 0 0% 10%;
+    
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 95 45% 45%;
+    
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 40 33% 95%;
+    --sidebar-primary: 95 45% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 40 33% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 95 45% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Product Card Styles */
+  .product-card {
+    @apply bg-card rounded-xl overflow-hidden transition-all duration-300;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .product-image-container {
+    @apply relative overflow-hidden aspect-[4/5];
+  }
+  
+  .product-image-container img {
+    @apply w-full h-full object-cover transition-transform duration-500;
+  }
+  
+  .product-card:hover .product-image-container img {
+    transform: scale(1.05);
+  }
+  
+  /* Badge Styles */
+  .badge-bestseller {
+    @apply absolute top-3 right-3 px-3 py-1.5 text-xs font-montserrat font-bold uppercase tracking-wide rounded-full;
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(43, 80%, 58%));
+    color: hsl(var(--gold-foreground));
+  }
+  
+  .badge-new {
+    @apply absolute top-3 left-3 px-3 py-1.5 text-xs font-montserrat font-bold uppercase tracking-wide rounded-full;
+    background: hsl(var(--blue-soft));
+    color: hsl(var(--primary));
+  }
+  
+  .badge-sale {
+    @apply absolute top-3 left-3 px-3 py-1.5 text-xs font-montserrat font-bold uppercase tracking-wide rounded-full;
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+  
+  /* Hero Section */
+  .hero-gradient {
+    background: linear-gradient(135deg, hsla(95, 52%, 20%, 0.4), transparent 70%);
+  }
+  
+  /* Navigation */
+  .nav-link {
+    @apply relative text-foreground/80 font-medium transition-colors duration-200;
+  }
+  
+  .nav-link:hover {
+    @apply text-primary;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  /* Category Card Overlay */
+  .category-overlay {
+    background: linear-gradient(180deg, transparent 40%, hsla(95, 52%, 20%, 0.75) 100%);
+  }
+  
+  /* Skeleton Loading */
+  .skeleton-shimmer {
+    background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--background)) 50%, hsl(var(--muted)) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--sage));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
+  }
+}
+
+@layer utilities {
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
